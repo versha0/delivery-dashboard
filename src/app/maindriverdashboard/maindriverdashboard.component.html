@@ -1,0 +1,54 @@
+<br>
+<h2 id="mainhead">Delivery Dashboard</h2>
+<br>
+<div class="card bg-light" id="maincard">
+  <div class="card-body text-center">
+    <button type="button" class="btn btn-outline-danger" id="cancelbutton">Cancel Delivery</button>
+    <br>
+    <p class="card-text">Vehicle Number:{{userData.vehiclenumber}} <br>Depot Address:{{userData.depoaddress}}</p>
+    <div class="card bg-light" id="detailscard">
+      <div class="card-body text-center">
+        <p class="card-text">Next Stop</p >
+        <p class="card-text">Address</p>
+      </div>
+    </div>
+    <br>
+    <div class="btn-group btn-group-lg" id="buttongrp">
+      <button type="button" class="btn btn-primary">Navigate</button>
+      <button type="button" class="btn btn-primary">Delivered</button>
+      <button type="button" class="btn btn-primary">Skip Delivery</button>
+    </div>
+
+  </div>
+</div>
+<br>
+<h3 id="secondhead">
+  Upcoming Stops
+</h3>
+<br>
+
+<div class="table-responsive text-nowrap">
+
+  <table class="table" id="ordertable">
+    <thead>
+    <tr>
+      <th scope="col">Order Id</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Order Volume</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of orderData ">
+
+      <td *ngIf="data.status=='pending'">{{data.ordernumber}}</td>
+      <td *ngIf="data.status=='pending'">{{data.customername}}</td>
+      <td *ngIf="data.status=='pending'">{{data.customeraddress}}</td>
+      <td *ngIf="data.status=='pending'">{{data.ordervolume}}</td>
+
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+

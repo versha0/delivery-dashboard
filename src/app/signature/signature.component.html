@@ -1,0 +1,32 @@
+<!--&lt;!&ndash;<p>signature works!</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<signature-pad #sigPad></signature-pad>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<b>value:</b>&ndash;&gt;-->
+<!--&lt;!&ndash;<pre>&ndash;&gt;-->
+<!--&lt;!&ndash;  {{sigPad.value | json}}&ndash;&gt;-->
+<!--&lt;!&ndash;</pre>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<button (click)="sigPad.clear()">Clear</button>&ndash;&gt;-->
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--      <div id="signature-pad" class="m-signature-pad">-->
+<!--        <div class="m-signature-pad-body">-->
+<!--          <signature-pad [options]="signaturePadOptions"></signature-pad>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+
+<!--</div>-->
+<signature-pad #sigPad></signature-pad>
+
+<b>value:</b>
+<pre>
+  {{sigPad.value | json}}
+</pre>
+
+<button (click)="sigPad.clear()">Clear</button>
