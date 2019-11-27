@@ -1,32 +1,29 @@
-<!--&lt;!&ndash;<p>signature works!</p>&ndash;&gt;-->
-<!--&lt;!&ndash;<signature-pad #sigPad></signature-pad>&ndash;&gt;-->
 
-<!--&lt;!&ndash;<b>value:</b>&ndash;&gt;-->
-<!--&lt;!&ndash;<pre>&ndash;&gt;-->
-<!--&lt;!&ndash;  {{sigPad.value | json}}&ndash;&gt;-->
-<!--&lt;!&ndash;</pre>&ndash;&gt;-->
-
-<!--&lt;!&ndash;<button (click)="sigPad.clear()">Clear</button>&ndash;&gt;-->
-<!--<div class="container-fluid">-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-12">-->
-<!--      <div id="signature-pad" class="m-signature-pad">-->
-<!--        <div class="m-signature-pad-body">-->
-<!--          <signature-pad [options]="signaturePadOptions"></signature-pad>-->
-<!--        </div>-->
-
-<!--      </div>-->
-<!--    </div>-->
-
-<!--  </div>-->
+<!--<ng-signature-pad-->
+<!--  doneButtonText="Show Image"-->
+<!--  format="base64"-->
+<!--  (done)="showImage($event)">-->
+<!--</ng-signature-pad>-->
 
 
-<!--</div>-->
-<signature-pad #sigPad></signature-pad>
+<!--<img [src]="signatureImage" *ngIf="signatureImage" />-->
+<div class="myclass">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-pad-body">
+      <div id="signature-pad" class="m-signature-pad">
+        <div   class="m-signature-pad-body">
+          <signature-pad [options]="signaturePadOptions" id="sp" #sp ></signature-pad>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <div class="text-left">
+      <button type="button" class="btn btn-primary" (click)="drawComplete()">Save</button>
+      <button type="button" class="btn btn-primary" (click)="sp.clear()">Clear</button>
 
-<b>value:</b>
-<pre>
-  {{sigPad.value | json}}
-</pre>
+    </div>
 
-<button (click)="sigPad.clear()">Clear</button>
+

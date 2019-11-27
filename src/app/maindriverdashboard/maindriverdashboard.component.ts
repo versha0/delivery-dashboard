@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-maindriverdashboard',
@@ -10,18 +11,14 @@ export class MaindriverdashboardComponent implements OnInit {
     {
       vehiclenumber: 'KA04P9437',
       totaldistance: '20',
-      depoaddress: 'kormangala,bleh,bleh 560029',
-      depolat: '12.9355° N',
-      depolon: '7.6141° E'
+      depoaddress: 'kormangala',
     };
-  test: any = {};
+
   orderData: any = [{
     customername: 'Adams Bakers',
     ordernumber: 'OR13213',
-    customeraddress: 'marathalli,bleh,bleh,bleh,560089',
+    customeraddress: 'marathalli',
     ordervolume: '10L',
-    lat: '12.9569° N',
-    lon: '77.7011° E',
     status: 'pending',
 
 
@@ -29,39 +26,44 @@ export class MaindriverdashboardComponent implements OnInit {
     {
       customername: 'Clark Davis',
       ordernumber: 'OR13214',
-      customeraddress: 'banashkari,bleh,bleh,bleh,560089',
+      customeraddress: 'forum%20mall',
       ordervolume: '50L',
-      lat: '12.9255° N',
-      lon: '77.5468° E ',
       status: 'pending',
 
     },
     {
       customername: 'Reily Smith',
       ordernumber: 'OR13215',
-      customeraddress: 'whitefield,bleh,bleh,bleh,560089',
+      customeraddress: 'indiranagar%20banglore',
       ordervolume: '60L',
-      lat: '12° 57\' 21.72" N',
-      lon: '77° 42\' 33.00" E',
-      status: 'delivered',
+      status: 'pending',
 
     },
     {
       customername: 'Frank Evans',
       ordernumber: 'OR13210',
-      customeraddress: 'bomanahalli,bleh,bleh,bleh,560089',
+      customeraddress: 'bomanahalli',
       ordervolume: '15L',
-      lat: '12.9030° N',
-      lon: '77.6242° E',
       status: 'pending',
 
     }];
 
-  constructor() {
+  constructor(private router: Router) {
     console.log(this.userData.vehiclenumber);
+    // this.userData.vehiclenumber = '1234';
+    // console.log(this.userData.vehiclenumber);
   }
 
   ngOnInit() {
   }
+  navigate() {
+    this.router.navigateByUrl('navigate');
+  }
+  signature() {
 
+    // for(let vehicle of this.orderData){
+
+    // }
+    this.router.navigateByUrl('signature');
+  }
 }
