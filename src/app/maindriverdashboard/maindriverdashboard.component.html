@@ -5,11 +5,12 @@
   <div class="card-body text-center">
     <button type="button" class="btn btn-outline-danger" id="cancelbutton">Cancel Delivery</button>
     <br>
-    <p class="card-text">Vehicle Number:{{userData.vehiclenumber}} <br>Depot Address:{{userData.depoaddress}}</p>
+    <p class="card-text">Vehicle Number:{{userData.vehiclenumber}} <br>Order Id:{{temp[0].ordernumber}}</p>
     <div class="card bg-light" id="detailscard">
       <div class="card-body text-center">
-        <p class="card-text">Next Stop</p >
-        <p class="card-text">Address</p>
+        <p class="card-text"  >Current Location:{{temp[0].customeraddress}}</p >
+        <p class="card-text"  >Next Stop:{{temp[1].customeraddress}}</p >
+
       </div>
     </div>
     <br>

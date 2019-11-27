@@ -41,7 +41,7 @@ export class SignatureComponent implements OnInit {
   }
 
   drawComplete() {
-    this.interactionservice.sendMessage('hi');
+    // this.interactionservice.sendMessage('hi');
     const signaturedetails = new SignatureDetails();
     const s = document.getElementById('sp');
     console.log(s);

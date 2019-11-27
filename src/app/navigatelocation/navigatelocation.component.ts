@@ -5,6 +5,7 @@ import * as forwardGeocoder from '@mapbox/mapbox-gl-geocoder';
 import * as mapboxgl from 'mapbox-gl';
 import {RoutingapiserviceService} from '../routingapiservice.service';
 import {InteractionService} from '../interaction.service';
+import {add} from 'ngx-bootstrap/chronos';
 
 // const map = require('mapbox-gl')
 
@@ -14,7 +15,8 @@ import {InteractionService} from '../interaction.service';
   styleUrls: ['./navigatelocation.component.css']
 })
 export class NavigatelocationComponent implements OnInit {
-  addresses = ['koramangala', 'marathahalli'];
+  // addresses = ['koramangala', 'marathahalli'];
+  addresses = [];
   jsonresponse;
   allcoordinates;
   points = [];
@@ -64,29 +66,27 @@ export class NavigatelocationComponent implements OnInit {
   ngOnInit() {
     // map.accessToken = 'pk.eyJ1IjoiZ2F1dGhhbTk5IiwiYSI6ImNrMzRlMmxrNjE0ZTMzbXBhOWRwdDk1eTcifQ.-ZceQ8jARpf90y0tJnQhoQ';
     // (map as any).accessToken = 'pk.eyJ1IjoiZ2F1dGhhbTk5IiwiYSI6ImNrMzRlMmxrNjE0ZTMzbXBhOWRwdDk1eTcifQ.-ZceQ8jARpf90y0tJnQhoQ';
-    // this.interactionservice.messageSource.subscribe(
-    //   message => {
-    //     console.log(message);
-    //     if (message === 'hi') {
-    //       console.log(message);
-    //       alert(message);
-    //     } else {
-    //       alert('notworking');
-    //       console.log(message);
-    //
-    //     }
-    //   }
-    // );
-    this.maputil();
+    this.interactionservice.messageSource.subscribe(
+      message => {
+        console.log(message);
+        this.addresses[0] = message.split(' ')[0];
+        this.addresses[1] = message.split(' ')[1];
+        console.log(this.addresses);
+        // console.log((this.addresses[0]));
+
+
+      }
+    );
+    this.maputil(this.addresses);
   }
-    maputil() {
-      this.routeapiservice.getLatandLong().subscribe((data) => {
+    maputil(address) {
+      this.routeapiservice.getLatandLong(address).subscribe((data) => {
         this.zone.run(() => {
           this.allcoordinates = data;
           this.coordinates = this.updatevalue(data);
-          updatepointsonmap(this.coordinates, this.addresses);
+          updatepointsonmap(this.coordinates, address);
           console.log(this.coordinates);
-          this.routeapiservice.getGeoJsonLatLOng(this.coordinates).subscribe((data2) => {
+          this.routeapiservice.getGeoJsonLatLOng(this.coordinates, address).subscribe((data2) => {
             this.zone.run(() => {
               this.waypoints = data2;
               makegeojsonline(data2, this.addresses.length - 1);
