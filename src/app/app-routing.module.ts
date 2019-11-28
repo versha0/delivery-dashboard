@@ -3,10 +3,12 @@ import {NavigatelocationComponent} from './navigatelocation/navigatelocation.com
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SignatureComponent} from './signature/signature.component';
+import {CancelreasonComponent} from './cancelreason/cancelreason.component';
 const routes: Routes = [
   { path : 'navigate', component: NavigatelocationComponent},
-  { path : '', component: MaindriverdashboardComponent},
-  { path : 'signature', component: SignatureComponent}
+  { path : 'driverdashboard', component: MaindriverdashboardComponent},
+  { path : 'signature', component: SignatureComponent},
+  {path: 'reasons' , component: CancelreasonComponent}
 
 
 

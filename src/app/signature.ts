@@ -1,4 +1,4 @@
 export class SignatureDetails {
-  orderid: string;
+  id: number;
   signatureimage: string;
 }

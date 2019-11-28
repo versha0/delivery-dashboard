@@ -13,4 +13,6 @@ export class InteractionService {
   sendMessage(message: string) {
     this.messageSource.next(message);
   }
+
+
 }

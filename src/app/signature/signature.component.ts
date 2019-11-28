@@ -3,6 +3,7 @@ import {SignaturePad} from 'angular2-signaturepad/signature-pad';
 import {SignatureService} from '../signature.service';
 import {SignatureDetails} from '../signature';
 import {InteractionService} from '../interaction.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signature',
@@ -18,7 +19,9 @@ export class SignatureComponent implements OnInit {
   // }
 
   constructor(private signatureservice: SignatureService,
-              private interactionservice: InteractionService) {
+              private interactionservice: InteractionService,
+              private router: Router
+              ) {
   }
 
   @ViewChild('sp', {static: false}) signaturePad: SignaturePad;
@@ -48,7 +51,7 @@ export class SignatureComponent implements OnInit {
     const signaturePad = new SignaturePad(this.signaturePad.queryPad());
     const base64 = this.signaturePad.toDataURL('image/png', 0.5);
     signaturedetails.signatureimage = base64;
-    signaturedetails.orderid = '01234';
+    // signaturedetails.orderid = '01234';
     console.log(signaturedetails.signatureimage);
     console.log(base64);
     const blob = this.base64toblob(base64);
@@ -56,7 +59,7 @@ export class SignatureComponent implements OnInit {
     this.signatureservice.sendSignatureRequest(signaturedetails).subscribe(data => {
       console.log(data);
     });
-
+    this.router.navigateByUrl('driverdashboard');
   }
 
   base64toblob(base64) {

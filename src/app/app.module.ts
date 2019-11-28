@@ -13,6 +13,9 @@ import {SignaturePadModule} from 'angular2-signaturepad';
 import {SignaturePad} from 'angular2-signaturepad/signature-pad';
 import {SignatureService} from './signature.service';
 import {InteractionService} from './interaction.service';
+import { CanceldialogueComponent } from './canceldialogue/canceldialogue.component';
+import {MatButtonModule, MatCardModule, MatDialogModule, MatSelectModule} from '@angular/material';
+import { CancelreasonComponent } from './cancelreason/cancelreason.component';
 
 
 
@@ -23,7 +26,11 @@ import {InteractionService} from './interaction.service';
     MaindriverdashboardComponent,
     NavigatelocationComponent,
     SignatureComponent,
+    CanceldialogueComponent,
+    CancelreasonComponent,
   ],
+
+  entryComponents: [CanceldialogueComponent],
   imports: [
     BrowserAnimationsModule,
     AlertModule.forRoot(),
@@ -35,7 +42,11 @@ import {InteractionService} from './interaction.service';
     ReactiveFormsModule,
     FormsModule,
     ReactiveFormsModule,
-    SignaturePadModule
+    SignaturePadModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatCardModule,
+    MatSelectModule,
   ],
   providers: [SignatureService, InteractionService],
   bootstrap: [AppComponent]
